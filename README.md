@@ -1,33 +1,41 @@
-```markdown
 # AI 简历智能分析助手
 
-一个基于 Python、Streamlit 和通义千问 API 开发的 AI 简历分析工具。上传 PDF 简历并输入目标岗位要求，即可提取简历内容，生成岗位匹配度分析与优化建议。
+一个基于 Python、Streamlit 和大语言模型开发的 AI 简历分析工具。用户上传 PDF 简历并输入目标岗位要求，系统自动提取简历内容，分析候选人与岗位的匹配程度，并生成针对性的优化建议。
 
-## 项目功能
+## 项目演示
 
-- **PDF 简历解析**：上传 PDF 文件并自动提取简历文本。
-- **岗位要求输入**：填写目标岗位的技能要求和任职条件。
-- **AI 简历分析**：调用通义千问 API 分析简历与岗位要求。
-- **匹配度评估**：从技能、项目经验和岗位契合度等方面进行分析。
-- **优化建议**：识别简历不足，并提供有针对性的修改方向。
+用户上传 PDF 简历，填写目标岗位要求，点击「开始分析匹配度」，即可获得 AI 分析结果。
+
+## 核心功能
+
+- **PDF 简历上传**：支持上传 PDF 格式的个人简历。
+- **简历内容提取**：自动读取并提取简历文本。
+- **岗位要求输入**：支持自定义目标岗位及技能要求。
+- **AI 智能分析**：从专业技能、项目经验、岗位匹配度等维度分析简历。
+- **匹配度评估**：生成岗位匹配评分及分析结果。
+- **简历优化建议**：指出简历存在的问题，并提供可执行的修改建议。
+- **行动计划**：生成阶段性求职提升建议。
 
 ## 技术栈
 
-- Python
-- Streamlit
-- PyMuPDF
-- OpenAI Python SDK
-- 通义千问 API
+| 技术 | 用途 |
+|---|---|
+| Python | 核心开发语言 |
+| Streamlit | Web 应用界面 |
+| PDF 文本提取工具 | 提取简历内容 |
+| 大语言模型 API | AI 简历分析 |
+| python-dotenv | 环境变量管理 |
 
 ## 项目结构
 
 ```text
-ai-resume-matcher/
-├── app.py
-├── requirements.txt
-├── README.md
-├── .env.example
-└── .gitignore
+ai-resume-analyzer/
+├── app.py             # Streamlit 主程序
+├── ai_utils.py        # AI 分析相关功能
+├── requirements.txt   # 项目依赖
+├── .env.example       # API 配置示例
+├── .gitignore         # Git 忽略配置
+└── README.md          # 项目说明
 ```
 
 ## 本地运行
@@ -35,60 +43,28 @@ ai-resume-matcher/
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/你的GitHub用户名/ai-resume-matcher.git
-cd ai-resume-matcher
+git clone https://github.com/heliliao95-hash/ai-resume-analyzer.git
+cd ai-resume-analyzer
 ```
 
-### 2. 创建虚拟环境并安装依赖
+### 2. 创建虚拟环境
 
-建议使用 Python 3.10 或更高版本。
-
-```powershell
+```bash
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-### 3. 配置 API
-
-在项目根目录创建 `.env` 文件并填写自己的 API 配置：
-
-```env
-DASHSCOPE_API_KEY=你的API_KEY
-DASHSCOPE_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
-DASHSCOPE_MODEL=qwen-plus
-```
-
-请勿将真实 API Key 提交或上传到 GitHub。
-
-### 4. 启动项目
+Windows PowerShell：
 
 ```powershell
-.\.venv\Scripts\python.exe -m streamlit run app.py
+.\.venv\Scripts\Activate.ps1
 ```
 
-启动后，在浏览器打开 <http://localhost:8501>。
+### 3. 安装依赖
 
-## 使用流程
-
-1. 上传 PDF 格式的个人简历。
-2. 等待系统提取简历内容。
-3. 输入目标岗位的招聘要求。
-4. 点击开始分析。
-5. 查看 AI 分析结果和简历优化建议。
-
-## 项目展示
-
-可将项目运行截图放在 `screenshots/` 文件夹中，展示实际运行效果。
-
-## 后续优化方向
-
-- 支持更多简历文件格式。
-- 增加不同岗位的简历匹配分析。
-- 优化简历关键词提取。
-- 增加简历修改前后的对比功能。
-- 支持生成优化后的简历文件。
-
-## License
-
-MIT License
+```bash
+pip install -r requirements.txt
 ```
+
+### 4. 配置 API Key
+
+在项目根目录创建 `.env` 文件，参考 `.env.example` 填
